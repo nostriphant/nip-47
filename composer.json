@@ -3,7 +3,8 @@
     "description": "NIP-47 (NWC) implementation in PHP",
     "type": "library",
     "require": {
-        "php": "^8.4"
+        "php": "^8.4",
+        "nostriphant/nip-01": "^2.4"
     },
     "require-dev": {
         "ext-curl": "*",
@@ -14,7 +15,8 @@
         "psr-4": {
             "nostriphant\\NIP47\\": "src/",
             "nostriphant\\NIP47Tests\\": "tests/"
-        }
+        },
+        "files" : ["NIP47.php"]
     },
     "authors": [
         {
