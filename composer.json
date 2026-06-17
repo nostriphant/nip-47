@@ -1,0 +1,35 @@
+{
+    "name": "nostriphant/nip-47",
+    "description": "NIP-47 (NWC) implementation in PHP",
+    "type": "library",
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "ext-curl": "*",
+        "pestphp/pest": "^4.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "nostriphant\\NIP47\\": "src/",
+            "nostriphant\\NIP47Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rik Meijer",
+            "email": "nostriphant@rikmeijer.nl"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/pest"
+        ]
+    }
+}
