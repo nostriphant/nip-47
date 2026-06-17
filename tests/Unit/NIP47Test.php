@@ -1,8 +1,8 @@
 <?php
 
-it('can create an info event', function () {
-    $event = nostriphant\NIP47::makeInfoEvent();
+it('can create an request event', function () {
+    $event = nostriphant\NIP47::makeRequestEvent();
     
-    expect($event->kind)->toBe(13194);
-    expect(\nostriphant\NIP01\Event::extractTagValues($event, "encryption")[0])->toContain("nip44_v2 nip04");
+    expect($event->kind)->toBe(23194);
+    expect(\nostriphant\NIP01\Event::hasTagValue($event, "encryption", "nip44_v2"))->toBeTrue();
 });
