@@ -4,7 +4,8 @@
     "type": "library",
     "require": {
         "php": "^8.4",
-        "nostriphant/nip-01": "^3.0"
+        "nostriphant/nip-01": "^3.0",
+        "nostriphant/nip-44": "^3.0"
     },
     "require-dev": {
         "ext-curl": "*",

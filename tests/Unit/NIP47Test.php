@@ -1,6 +1,9 @@
 <?php
 
 it('can create an request event', function () {
+    $client_key = nostriphant\NIP01\Key::generate();
+    $client_pubkey = $client_key(nostriphant\NIP01\Key::public());
+    
     $wallet_service_key = nostriphant\NIP01\Key::generate();
     $wallet_service_pubkey = $wallet_service_key(nostriphant\NIP01\Key::public());
     
@@ -13,7 +16,8 @@ it('can create an request event', function () {
     expect($event->kind)->toBe(23194);
     expect(nostriphant\NIP01\Event::hasTagValue($event, 'p', $wallet_service_pubkey))->toBeTrue();
     expect(\nostriphant\NIP01\Event::hasTagValue($event, "encryption", "nip44_v2"))->toBeTrue();
-    expect($event->content)->toBe(json_encode([
+    
+    expect(\nostriphant\NIP44::decrypt($wallet_service_key, $client_pubkey, $event->content))->toBe(json_encode([
         "method" => "pay_invoice",
         "params" => [
             "invoice" => "lnbc50n1...", // bolt11 invoice
